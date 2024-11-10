@@ -18,6 +18,7 @@ class Engine{
         void Quit();
 
         void Render();
+        void Events();
 
         inline bool IsRunning(){return m_IsRunning;}
         inline SDL_Renderer* GetRenderer(){return m_Renderer;}

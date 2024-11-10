@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "../Input/Input.h"
 
 Engine* Engine::s_Instance = nullptr;
 
@@ -27,6 +28,10 @@ bool Engine::Init(){
 void Engine::Render(){
     SDL_RenderClear(m_Renderer);
     SDL_RenderPresent(m_Renderer);
+}
+
+void Engine::Events(){
+    Input::GetInstance()->Listen();
 }
 
 void Engine::Clean(){

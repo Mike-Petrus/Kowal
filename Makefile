@@ -1,4 +1,4 @@
-OBJS = main.cpp src/Core/Engine.cpp
+OBJS = main.cpp src/Core/Engine.cpp src/Input/Input.cpp
 
 CC = g++
 
