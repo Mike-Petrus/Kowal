@@ -1,4 +1,4 @@
-OBJS = main.cpp src/Core/Engine.cpp src/Input/Input.cpp
+OBJS = main.cpp src/Core/Engine.cpp src/Input/Input.cpp src/Timer/Timer.cpp src/Ships/Kowal/Kowal.cpp
 
 CC = g++
 
