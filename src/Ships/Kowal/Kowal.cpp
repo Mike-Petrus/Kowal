@@ -15,7 +15,27 @@ void Kowal::Draw(){
 }
 
 void Kowal::Update(float dt){
-    SDL_Log("Update");
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W)){
+        MoveFoward();
+    }
+        if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D)){
+        RotateRight();
+    }
+        if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A)){
+        RotateLeft();
+    }
+}
+
+void Kowal::MoveFoward(){
+
+}
+
+void Kowal::RotateRight(){
+
+}
+
+void Kowal::RotateLeft(){
+    
 }
 
 void Kowal::Clean(){

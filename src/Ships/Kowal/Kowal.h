@@ -16,6 +16,10 @@ class Kowal : public Ship{
 
     protected:
 
+        void MoveFoward();
+        void RotateRight();
+        void RotateLeft();
+
         SDL_Vertex v0, v1, v2;
         SDL_Vertex m_Vertices[3];
 };
