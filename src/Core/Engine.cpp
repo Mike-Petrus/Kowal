@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "../Input/Input.h"
+#include "../Timer/Timer.h"
 
 Engine* Engine::s_Instance = nullptr;
 
@@ -23,6 +24,10 @@ bool Engine::Init(){
     }
 
     return m_IsRunning = true;
+}
+
+void Engine::Update(){
+    float dt = Timer::getInstance()->GetDeltaTime();
 }
 
 void Engine::Render(){
