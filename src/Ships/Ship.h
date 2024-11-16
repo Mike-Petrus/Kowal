@@ -27,6 +27,9 @@ class Ship : public GameObject{
 
         private:
 
-        
+        virtual void MoveForward();
+        virtual void RotateRight();
+        virtual void RotateLeft();
 
+        float angle; 
 };
