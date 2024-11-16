@@ -17,6 +17,7 @@ class Engine{
         void Clean();
         void Quit();
 
+        void Update();
         void Render();
         void Events();
 
