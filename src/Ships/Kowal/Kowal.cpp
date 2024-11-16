@@ -27,15 +27,15 @@ void Kowal::Update(float dt){
 }
 
 void Kowal::MoveFoward(){
-
+    SDL_Log("Forward");
 }
 
 void Kowal::RotateRight(){
-
+    SDL_Log("Right");
 }
 
 void Kowal::RotateLeft(){
-    
+    SDL_Log("Left");
 }
 
 void Kowal::Clean(){
