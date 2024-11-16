@@ -19,17 +19,17 @@ struct Attributes{
 
 class Ship : public GameObject{
     public:
-        Ship(Attributes* attributes, Properties* properties, Vec2f* origin): GameObject(properties, origin){}
+        Ship(Attributes* attributes, Properties* properties): GameObject(properties), m_HP(attributes->HP), m_EP(attributes->EP), m_AP(attributes->AP),
+        m_SPD(attributes->SPD), m_ACCEL(attributes->ACCEL){}
 
-        virtual void Draw();
-        virtual void Update(float dt);
-        virtual void Clean();
+        virtual void Draw()=0;
+        virtual void Update(float dt)=0;
+        virtual void Clean()=0;
 
-        private:
+    protected:
 
-        virtual void MoveForward();
-        virtual void RotateRight();
-        virtual void RotateLeft();
+        int m_HP, m_EP, m_AP;
+        float m_SPD, m_ACCEL;     
 
         float angle; 
 };
