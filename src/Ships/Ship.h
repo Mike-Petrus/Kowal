@@ -31,4 +31,5 @@ class Ship : public GameObject{
         int m_HP, m_EP, m_AP;
         float m_SPD, m_ACCEL;     
 
+        float angle; 
 };
