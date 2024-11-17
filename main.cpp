@@ -13,6 +13,7 @@ int main(int argc, char* args[]){
     
     while(Engine::GetInstance()->IsRunning()){
         Engine::GetInstance()->Events();
+        Engine::GetInstance()->Update();
         Engine::GetInstance()->Render();
 
         if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_ESCAPE)){

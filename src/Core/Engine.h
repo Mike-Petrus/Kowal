@@ -28,8 +28,10 @@ class Engine{
 
         Engine(){};
 
+        static Engine* s_Instance;
         bool m_IsRunning;
+
         SDL_Window* m_Window;
         SDL_Renderer* m_Renderer;
-        static Engine* s_Instance;
+        SDL_Texture* m_Texture;
 };
