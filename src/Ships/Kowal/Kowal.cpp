@@ -3,13 +3,13 @@
 #include <SDL2/SDL_render.h>
 
 Kowal::Kowal(Attributes* attributes, Properties* properties) : Ship(attributes, properties){
-    v1 = {{properties->X, properties->Y - 20}, {255, 0, 0, 255}, {1, 1}};
-    v2 = {{properties->X - 10, properties->Y + 10}, {255, 0, 0, 255}, {1, 1}};
-    v3 = {{properties->X + 10, properties->Y + 10}, {255, 0, 0, 255}, {1, 1}};
+    v0 = {{properties->X, properties->Y - 20}, {255, 0, 0, 255}, {1, 1}};
+    v1 = {{properties->X - 10, properties->Y + 10}, {255, 0, 0, 255}, {1, 1}};
+    v2 = {{properties->X + 10, properties->Y + 10}, {255, 0, 0, 255}, {1, 1}};
 
-    m_Vertices[0] = v1;
-    m_Vertices[1] = v2;
-    m_Vertices[2] = v3;
+    m_Vertices[0] = v0;
+    m_Vertices[1] = v1;
+    m_Vertices[2] = v2;
 
     SDL_Log("V1 pos x: %f\n", m_Vertices[0].position.x);
     SDL_Log("V1 pos y: %f \n\n", m_Vertices[0].position.y );
