@@ -1,8 +1,11 @@
 #include "Engine.h"
+#include "../Ships/Kowal/Kowal.h"
 #include "../Input/Input.h"
 #include "../Timer/Timer.h"
+#include <SDL2/SDL_render.h>
 
-Engine* Engine::s_Instance = nullptr;
+Engine* Engine::s_Instance = nullptr;;
+Kowal* player = nullptr;
 
 bool Engine::Init(){
 
@@ -23,15 +26,21 @@ bool Engine::Init(){
         return false;
     }
 
+    player = new Kowal(new Attributes(10, 10, 0, 10, 10), new Properties(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 20, 30));
+
     return m_IsRunning = true;
 }
 
 void Engine::Update(){
     float dt = Timer::getInstance()->GetDeltaTime();
+    player->Update(dt);
 }
 
 void Engine::Render(){
     SDL_RenderClear(m_Renderer);
+    SDL_RenderPresent(m_Renderer);
+
+    SDL_RenderGeometry(m_Renderer, nullptr, player->getVertices(), 3, nullptr, 0);
     SDL_RenderPresent(m_Renderer);
 }
 
