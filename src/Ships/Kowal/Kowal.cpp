@@ -1,6 +1,7 @@
 #include "Kowal.h"
 #include "../../Input/Input.h"
 #include <SDL2/SDL_render.h>
+#include <linalg.h>
 
 Kowal::Kowal(Attributes* attributes, Properties* properties) : Ship(attributes, properties){
     v0 = {{properties->X, properties->Y - 20}, {255, 0, 0, 255}, {1, 1}};
@@ -11,6 +12,9 @@ Kowal::Kowal(Attributes* attributes, Properties* properties) : Ship(attributes, 
     m_Vertices[1] = v1;
     m_Vertices[2] = v2;
 
+    m_Direction = linalg::normalize(Vec2f{v0.position.x - properties->X, v0.position.y - properties->Y});
+    m_Angle = 90;
+
     SDL_Log("V1 pos x: %f\n", m_Vertices[0].position.x);
     SDL_Log("V1 pos y: %f \n\n", m_Vertices[0].position.y );
 
@@ -20,7 +24,8 @@ Kowal::Kowal(Attributes* attributes, Properties* properties) : Ship(attributes, 
     SDL_Log("V3 pos x: %f\n", m_Vertices[2].position.x);
     SDL_Log("V3 pos y: %f \n\n", m_Vertices[2].position.y);
 
-    angle = 90;
+    SDL_Log("Direction x: %f\n", m_Direction.x);
+    SDL_Log("Direction y: %f\n\n", m_Direction.y);
 }
 
 SDL_Vertex* Kowal::getVertices(){
@@ -44,7 +49,14 @@ void Kowal::Update(float dt){
 }
 
 void Kowal::MoveFoward(){
-    SDL_Log("Forward");
+    m_Vertices[0].position.x += m_Direction.x * m_SPD;
+    m_Vertices[0].position.y += m_Direction.y * m_SPD;
+
+    m_Vertices[1].position.x += m_Direction.x * m_SPD;
+    m_Vertices[1].position.y += m_Direction.y * m_SPD;
+
+    m_Vertices[2].position.x += m_Direction.x * m_SPD;
+    m_Vertices[2].position.y += m_Direction.y * m_SPD;
 }
 
 void Kowal::RotateRight(){

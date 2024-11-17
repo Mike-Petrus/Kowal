@@ -20,7 +20,9 @@ class Kowal : public Ship{
         virtual void RotateRight();
         virtual void RotateLeft();
 
-        float angle;
+        float m_Angle;
+        Vec2f m_Direction;
+
         SDL_Vertex v0, v1, v2;
         SDL_Vertex m_Vertices[3];
 };
