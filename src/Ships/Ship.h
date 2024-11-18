@@ -32,8 +32,6 @@ class Ship : public GameObject{
         virtual void Rotate(int clockwise)=0;
 
         int m_HP, m_EP, m_AP;
-        float m_SPD, m_ACCEL;     
-
-        float m_Angle;
+        float m_SPD, m_ACCEL;
         Vec2f m_Direction; 
 };
