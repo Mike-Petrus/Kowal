@@ -59,7 +59,6 @@ void Kowal::MoveFoward(){
 }
 
 void Kowal::Rotate(int clockwise){
-    m_Angle -= 1;
     v0 = {{v0.x - m_Transform->X}, {v0.y - m_Transform->Y}};
     v1 = {{v1.x - m_Transform->X}, {v1.y - m_Transform->Y}};
     v2 = {{v2.x - m_Transform->X}, {v2.y - m_Transform->Y}};
