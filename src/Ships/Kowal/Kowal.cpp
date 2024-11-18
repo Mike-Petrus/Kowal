@@ -66,6 +66,7 @@ void Kowal::Rotate(int clockwise){
     v0 = linalg::rot((clockwise * PI / 180), v0);
     v1 = linalg::rot((clockwise * PI / 180), v1);
     v2 = linalg::rot((clockwise * PI / 180), v2);
+    m_Direction = linalg::rot((clockwise * PI / 180), m_Direction);
 
     v0 = {{v0.x + m_Transform->X}, {v0.y + m_Transform->Y}};
     v1 = {{v1.x + m_Transform->X}, {v1.y + m_Transform->Y}};
