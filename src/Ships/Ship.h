@@ -29,8 +29,7 @@ class Ship : public GameObject{
     protected:
 
         virtual void MoveFoward()=0;
-        virtual void RotateRight()=0;
-        virtual void RotateLeft()=0;
+        virtual void Rotate(int clockwise)=0;
 
         int m_HP, m_EP, m_AP;
         float m_SPD, m_ACCEL;     
