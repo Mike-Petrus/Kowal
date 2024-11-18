@@ -26,7 +26,7 @@ bool Engine::Init(){
         return false;
     }
 
-    player = new Kowal(new Attributes(10, 10, 0, 10, 10), new Properties(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 20, 30));
+    player = new Kowal(new Attributes(10, 10, 0, 2, 10), new Properties(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 20, 30));
 
     return m_IsRunning = true;
 }

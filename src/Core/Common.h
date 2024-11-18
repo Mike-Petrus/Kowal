@@ -4,6 +4,8 @@
 
 namespace vam{
 
+    #define PI 3.14159f
+
     // linalg::vec<T, M> defines a fixed-length vector containg exactly M elements of type T
     template<int N, class T> using Vec = linalg::vec<T, N>;
 
