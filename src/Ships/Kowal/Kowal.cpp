@@ -34,18 +34,21 @@ SDL_Vertex* Kowal::getVertices(){
 }
 
 void Kowal::Draw(){
-    SDL_Log("Draw");
+    m_Cannon->Draw();
 }
 
 void Kowal::Update(float dt){
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W)){
         MoveFoward();
     }
-        if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D)){
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D)){
         Rotate(1);
     }
-        if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A)){
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A)){
         Rotate(-1);
+    }
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_SPACE)){
+        FireCannon();
     }
 
     m_Cannon->Update(dt);
@@ -82,11 +85,12 @@ void Kowal::Rotate(int clockwise){
     m_Vertices[1].position = {v1.x, v1.y};
     m_Vertices[2].position = {v2.x, v2.y};
 
+    m_Cannon->SetPosition(v0);
     m_Cannon->SetDirection(m_Direction);
 }
 
 void Kowal::FireCannon(){
-    
+    m_Cannon->Fire();
 }
 
 void Kowal::Clean(){

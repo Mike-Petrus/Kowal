@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Weapon.h"
+#include "../../Projectiles/Bullet/Bullet.h"
 
 class Cannon : public Weapon{
     public:
@@ -11,5 +12,8 @@ class Cannon : public Weapon{
         virtual void Draw();
         virtual void Update(float dt);
         virtual void Clean();
+
+    protected:
+        std::vector<Bullet> m_Bullets;
 
 };
