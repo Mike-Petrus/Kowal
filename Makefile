@@ -1,4 +1,5 @@
-OBJS = main.cpp src/Core/Engine.cpp src/Input/Input.cpp src/Timer/Timer.cpp src/Ships/Kowal/Kowal.cpp
+OBJS = main.cpp src/Core/Engine.cpp src/Input/Input.cpp src/Timer/Timer.cpp src/Ships/Kowal/Kowal.cpp src/Weapons/Weapon.cpp \
+src/Weapons/Cannon/Cannon.cpp src/Projectiles/Bullet/Bullet.cpp
 
 CC = g++
 

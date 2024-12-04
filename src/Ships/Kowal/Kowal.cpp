@@ -25,6 +25,8 @@ Kowal::Kowal(Attributes* attributes, Properties* properties) : Ship(attributes, 
 
     SDL_Log("Direction x: %f\n", m_Direction.x);
     SDL_Log("Direction y: %f\n\n", m_Direction.y);
+
+    m_Cannon = new Cannon(new Properties(v0.x, v0.y, 1, 1), m_Direction);
 }
 
 SDL_Vertex* Kowal::getVertices(){
@@ -32,19 +34,24 @@ SDL_Vertex* Kowal::getVertices(){
 }
 
 void Kowal::Draw(){
-    SDL_Log("Draw");
+    m_Cannon->Draw();
 }
 
 void Kowal::Update(float dt){
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W)){
         MoveFoward();
     }
-        if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D)){
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D)){
         Rotate(1);
     }
-        if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A)){
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A)){
         Rotate(-1);
     }
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_SPACE)){
+        FireCannon();
+    }
+
+    m_Cannon->Update(dt);
 }
 
 void Kowal::MoveFoward(){
@@ -56,6 +63,8 @@ void Kowal::MoveFoward(){
     m_Vertices[0].position = {v0.x, v0.y};
     m_Vertices[1].position = {v1.x, v1.y};
     m_Vertices[2].position = {v2.x, v2.y};
+
+    m_Cannon->SetPosition(v0);
 }
 
 void Kowal::Rotate(int clockwise){
@@ -75,6 +84,13 @@ void Kowal::Rotate(int clockwise){
     m_Vertices[0].position = {v0.x, v0.y};
     m_Vertices[1].position = {v1.x, v1.y};
     m_Vertices[2].position = {v2.x, v2.y};
+
+    m_Cannon->SetPosition(v0);
+    m_Cannon->SetDirection(m_Direction);
+}
+
+void Kowal::FireCannon(){
+    m_Cannon->Fire();
 }
 
 void Kowal::Clean(){

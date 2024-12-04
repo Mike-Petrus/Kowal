@@ -38,9 +38,9 @@ void Engine::Update(){
 
 void Engine::Render(){
     SDL_RenderClear(m_Renderer);
-    SDL_RenderPresent(m_Renderer);
-
     SDL_RenderGeometry(m_Renderer, nullptr, player->getVertices(), 3, nullptr, 0);
+
+    player->Draw();
     SDL_RenderPresent(m_Renderer);
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Ship.h"
+#include "../../Weapons/Cannon/Cannon.h"
 #include <SDL2/SDL_render.h>
 
 class Kowal : public Ship{
@@ -19,7 +20,11 @@ class Kowal : public Ship{
         virtual void MoveFoward();
         virtual void Rotate(int clockwise);
 
+        virtual void FireCannon();
+
         Vec2f m_Direction;
         Vec2f v0, v1, v2;
         SDL_Vertex m_Vertices[3];
+
+        Cannon* m_Cannon;
 };
