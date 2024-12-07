@@ -3,6 +3,9 @@
 #include "../Weapon.h"
 #include "../../Projectiles/Bullet/Bullet.h"
 
+#define COOLDOWN 100.0f
+#define FIRE_RATE 5.0f
+
 class Cannon : public Weapon{
     public:
         Cannon(Properties* properties, Vec2f direction);
@@ -15,5 +18,5 @@ class Cannon : public Weapon{
 
     protected:
         std::vector<Bullet> m_Bullets;
-
+        float m_Cooldown;
 };

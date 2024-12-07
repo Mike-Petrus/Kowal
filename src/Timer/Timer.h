@@ -8,7 +8,7 @@ class Timer{
 
         void Tick();
         inline float GetDeltaTime(){return m_DeltaTime;}
-        inline static Timer* getInstance(){return s_Instance = (s_Instance != nullptr) ? s_Instance : new Timer();}
+        inline static Timer* GetInstance(){return s_Instance = (s_Instance != nullptr) ? s_Instance : new Timer();}
 
     private:
 

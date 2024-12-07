@@ -32,7 +32,7 @@ bool Engine::Init(){
 }
 
 void Engine::Update(){
-    float dt = Timer::getInstance()->GetDeltaTime();
+    float dt = Timer::GetInstance()->GetDeltaTime();
     player->Update(dt);
 }
 

@@ -1,4 +1,5 @@
 #include "src/Core/Engine.h"
+#include "src/Timer/Timer.h"
 #include "src/Input/Input.h"
 //Do I need #include <unistd.h> for pragma once?
 //Keep this here in case something breaks
@@ -15,6 +16,7 @@ int main(int argc, char* args[]){
         Engine::GetInstance()->Events();
         Engine::GetInstance()->Update();
         Engine::GetInstance()->Render();
+        Timer::GetInstance()->Tick();
 
         if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_ESCAPE)){
             Engine::GetInstance()->Quit();
