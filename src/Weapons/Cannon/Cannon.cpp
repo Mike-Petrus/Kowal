@@ -36,7 +36,6 @@ void Cannon::Draw(){
 void Cannon::Update(float dt){
     if (m_Cooldown < 0.0f){m_Cooldown = 0.0f;}
     else if (m_Cooldown > 0.0){m_Cooldown -= (dt * m_FireRate);}
-    SDL_Log("Cooldown: %f \n", m_Cooldown);
 
     for (size_t i = 0; i < m_Bullets.size(); ++i){
         if (!m_Bullets[i].isActive()){

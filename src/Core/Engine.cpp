@@ -3,9 +3,12 @@
 #include "../Input/Input.h"
 #include "../Timer/Timer.h"
 #include <SDL2/SDL_render.h>
+#include "../Shapes/Circle.h"
 
-Engine* Engine::s_Instance = nullptr;;
+Engine* Engine::s_Instance = nullptr;
 Kowal* player = nullptr;
+Circle* circle = nullptr;
+
 
 bool Engine::Init(){
 
@@ -27,6 +30,7 @@ bool Engine::Init(){
     }
 
     player = new Kowal(new Attributes(10, 10, 0, 2, 10), new Properties(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 20, 30));
+    circle = new Circle(35, Vec2f{100, 100});
 
     return m_IsRunning = true;
 }
@@ -40,6 +44,7 @@ void Engine::Render(){
     SDL_RenderClear(m_Renderer);
     SDL_RenderGeometry(m_Renderer, nullptr, player->getVertices(), 3, nullptr, 0);
 
+    circle->Draw();
     player->Draw();
     SDL_RenderPresent(m_Renderer);
 }
